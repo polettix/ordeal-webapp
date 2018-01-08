@@ -18,7 +18,7 @@ plugin 'Bot::ChatBots::Telegram' => instances => [
       processor  => pipeline(
          \&pre_processor,
          {tap => sub {($_[0]->())[0]}},
-      )
+      ),
       register   => 1,
       token      => $token,
       unregister => 1,
