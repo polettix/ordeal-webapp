@@ -11,7 +11,7 @@ Log::Any::Adapter->set(MojoLog => logger => app->log);
 
 my $domain = $ENV{DOMAIN};
 my $token  = $ENV{TOKEN};
-(my $path = "telegram/$token") =~ s{\W}{-}gmxs;
+(my $wtoken = $token) =~ s{\W}{-}gmxs;
 plugin 'Bot::ChatBots::Telegram' => instances => [
    [
       'WebHook',
@@ -22,7 +22,7 @@ plugin 'Bot::ChatBots::Telegram' => instances => [
       register   => 1,
       token      => $token,
       unregister => 1,
-      url        => "https://$domain/$path",
+      url        => "https://$domain/telegram/$wtoken",
    ],
    # more can follow here...
 ];
