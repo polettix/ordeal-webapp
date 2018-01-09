@@ -1,6 +1,7 @@
 #!/usr/bin/env perl
 use strict;
 use warnings;
+use Data::Dumper;
 
 use Mojolicious::Lite;
 use Log::Any qw< $log >;
@@ -16,6 +17,7 @@ plugin 'Bot::ChatBots::Telegram' => instances => [
    [
       'WebHook',
       processor  => pipeline(
+         \&log_request,
          \&pre_processor,
          {tap => sub {($_[0]->())[0]}},
       ),
@@ -27,6 +29,12 @@ plugin 'Bot::ChatBots::Telegram' => instances => [
    # more can follow here...
 ];
 app->start;
+
+sub log_request {
+   my $record = shift;
+   local $Data::Dumper::Indent = 1;
+   $log->info('Received: ', Dumper($record));
+}
 
 sub pre_processor {
    my $record = shift;
