@@ -19,26 +19,42 @@ plugin 'Bot::ChatBots::Telegram' => instances => [
       processor  => pipeline(
          \&log_request,
          \&pre_processor,
-         {tap => sub {($_[0]->())[0]}},
+         {tap => 'bucket'},
       ),
       register   => 1,
       token      => $token,
-      unregister => 1,
+      unregister => 0,
       url        => "https://$domain/telegram/$wtoken",
    ],
    # more can follow here...
 ];
+
+get '/unregister' => sub {
+   app->chatbots->telegram->instances->[0]->unregister;
+   shift->render(text => 'done');
+};
+
+get '/registration' => sub {
+   require WWW::Telegram::BotAPI;
+   my $outcome = WWW::Telegram::BotAPI->new(token => $token)
+     ->getWebhookInfo();
+   shift->render(json => $outcome || {});
+};
+
 app->start;
 
 sub log_request {
    my $record = shift;
    local $Data::Dumper::Indent = 1;
-   $log->info('Received: ', Dumper($record));
+   $log->info('Payload: ', Dumper($record->{payload}));
+   return $record;
 }
 
 sub pre_processor {
    my $record = shift;
+   $log->info("setting response");
    # do whatever you want with $record, e.g. set a quick response
-   $record->{response} = 'your thoughs are important for us!';
+   $record->{send_response} =
+      'your thoughts are important for us! ' . $];
    return $record;
 }
