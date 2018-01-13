@@ -10,6 +10,8 @@ use Bot::ChatBots::Utils qw< pipeline >;
 
 Log::Any::Adapter->set(MojoLog => logger => app->log);
 
+app->secrets([split m{\s+}mxs, ($ENV{SECRETS} || 'befunge!')]);
+
 my $domain = $ENV{DOMAIN};
 my $token  = $ENV{TOKEN};
 (my $wtoken = $token) =~ s{\W}{-}gmxs;
