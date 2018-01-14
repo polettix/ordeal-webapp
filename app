@@ -31,18 +31,6 @@ plugin 'Bot::ChatBots::Telegram' => instances => [
    # more can follow here...
 ];
 
-get '/unregister' => sub {
-   app->chatbots->telegram->instances->[0]->unregister;
-   shift->render(text => 'done');
-};
-
-get '/registration' => sub {
-   require WWW::Telegram::BotAPI;
-   my $outcome = WWW::Telegram::BotAPI->new(token => $token)
-     ->getWebhookInfo();
-   shift->render(json => $outcome || {});
-};
-
 app->start;
 
 sub log_request {
