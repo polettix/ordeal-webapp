@@ -1,7 +1,7 @@
 % layout 'default';
 <style>
 .icon {
-   width: 20%;
+   width: 30%;
 }
 div#icons {
    margin-top: 1em;
