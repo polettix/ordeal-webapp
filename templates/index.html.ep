@@ -1,0 +1,24 @@
+% layout 'default';
+<style>
+.icon {
+   width: 20%;
+}
+div#icons {
+   margin-top: 1em;
+}
+</style>
+%= form_for '/' => begin
+  Cards:
+  %= text_field 'n_cards'
+  %= submit_button 'Draw'
+% end
+
+<div id="icons">
+% my $i = 0;
+% for my $card ($cards->@*) {
+<img class="icon" id="<%= $card->{id} %>" src="<%= $card->{url} %>" />
+%     if (++$i % 3 == 0) {
+         <br />
+%     }
+% }
+</div>

@@ -1,0 +1,5 @@
+<!DOCTYPE html>
+<html>
+  <head><title>Ordeal</title></head>
+  <body><%= content %></body>
+</html>
