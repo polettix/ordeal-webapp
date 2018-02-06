@@ -42,7 +42,7 @@ if ($ENV{TOKEN}) {
 }
 
 get '/' => sub ($c) {
-   my $cards = $c->param('n_cards') // 9;
+   my $cards = $c->param('n_cards') || 9;
    $c->stash(n_cards => $cards);
    my @cards = ordeal->get_shuffled_cards(
       items => [qw< public-001-all >],
