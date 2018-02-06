@@ -1,17 +1,38 @@
 % layout 'default';
 <style>
-.icon {
-   width: 30%;
+#input {
+   text-align: center;
+}
+.input {
+   font: bold 48px sans-serif;
+   margin: 0.2em 0.2em;
+}
+.button {
+   border: #aaa;
+   border-radius: 3px;
+   background: #ccc;
+   border: 2px solid #bbb;
+}
+.text {
+   width: 1.5em;
+   text-align: center;
 }
 div#icons {
    margin-top: 1em;
+   text-align: center;
+}
+.icon {
+   width: 30%;
+   margin: 1%;
 }
 </style>
-%= form_for '/' => begin
-  Cards:
-  %= text_field 'n_cards'
-  %= submit_button 'Draw'
-% end
+
+<div id="input">
+   <form action="/" method="get">
+      <input class="input text" name="n_cards" type="text" value="<%= $n_cards %>">
+      <input class="input button" type="submit" value="Go!">
+   </form>
+</div>
 
 <div id="icons">
 % my $i = 0;
