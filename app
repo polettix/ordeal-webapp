@@ -63,6 +63,8 @@ get '/' => sub ($c) {
    );
 };
 
+get '/credits' => {template => 'credits'};
+
 
 
 app->start;

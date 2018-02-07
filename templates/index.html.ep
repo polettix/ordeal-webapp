@@ -9,9 +9,11 @@
 }
 .button {
    border: #aaa;
-   border-radius: 3px;
-   background: #ccc;
+   border-radius: 10px;
+   background: #eee;
    border: 2px solid #bbb;
+   padding-left: 0.3em;
+   padding-right: 0.3em;
 }
 .text {
    width: 1.5em;
@@ -24,6 +26,10 @@ div#icons {
 .icon {
    width: 30%;
    margin: 1%;
+}
+div#credits {
+   text-align: center;
+   font-size: 10pt;
 }
 </style>
 
@@ -43,3 +49,5 @@ div#icons {
 %     }
 % }
 </div>
+
+<div id="credits"><a href="credits">credits</a></div>

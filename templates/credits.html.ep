@@ -1,0 +1,15 @@
+% layout 'default';
+<h1>Credits</h1>
+
+<ul>
+   <li>Icons series by <a href="http://www.toicon.com/">to [icon]</a>.
+      <ul>
+         <li><a href="http://www.toicon.com/series/avocado">Avocado</a></li>
+         <li><a href="http://www.toicon.com/series/sketchy">Sketchy</a></li>
+         <li><a href="http://www.toicon.com/series/fandom">Fandom</a></li>
+         <li><a href="http://www.toicon.com/series/science-and-fiction">Science and Fiction</a></li>
+      </ul>
+   </li>
+</ul>
+
+<p style="text-align: center"><a href="/">Home</a></p>
