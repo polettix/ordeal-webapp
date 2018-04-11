@@ -16,7 +16,7 @@
    padding-right: 0.3em;
 }
 .text {
-   width: 1.5em;
+   width: 5em;
    text-align: center;
 }
 div#icons {
