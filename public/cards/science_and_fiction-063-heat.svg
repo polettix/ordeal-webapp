@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="designs" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="32px" height="32px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+<style type="text/css">
+	.scienceandfiction_een{fill:#2B4099;}
+	.scienceandfiction_twee{fill:#CC2954;}
+</style>
+<path class="scienceandfiction_twee" d="M18,15v1h-1v-1H18L18,15z M19,16h-1v1h1V16L19,16z M21,16h-1v1h0.5L21,16L21,16z M18,7h-1v1
+	h1V7L18,7z M20,7v1h-1V7H20L20,7z M19,8h-1v1h1V8L19,8z M21,9h-1v1h1V9L21,9z M18,11h-1v1h1V11L18,11z M20,10h-1v1h1V10L20,10z
+	 M19,12h-1v1h1V12L19,12z M21,12h-1v1h1V12L21,12z M18,13h-1v1h1V13L18,13z M20,13h-1v1h1V13L20,13z M19,14h-1v1h1V14L19,14z M21,14
+	h-1v1h1V14L21,14z M20,15h-1v1h1V15L20,15z M19,22.586l0.707,0.707C19.896,23.482,20,23.733,20,24s-0.104,0.518-0.293,0.707
+	C19.518,24.896,19.267,25,19,25c-0.267,0-0.518-0.104-0.707-0.293C18.104,24.518,18,24.267,18,24s0.104-0.518,0.293-0.707L19,22.586
+	z M19,21.172l-1.414,1.414c-0.781,0.781-0.781,2.047,0,2.828h0C17.976,25.805,18.488,26,19,26s1.024-0.195,1.414-0.586h0
+	c0.781-0.781,0.781-2.047,0-2.828L19,21.172L19,21.172z"/>
+<path class="scienceandfiction_een" d="M10,27V6h6v9c0,1.657,1.343,3,3,3s3-1.343,3-3V6h2V5h-1V3h-8v2H7v22H5v3h22v-3H10z M21,15
+	c0,1.103-0.897,2-2,2s-2-0.897-2-2V6h4V15z M16,4h6v1h-6V4z M8,6h1v21H8V6z M26,29H6v-1h20V29z"/>
+</svg>
