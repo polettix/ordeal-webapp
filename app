@@ -10,6 +10,7 @@ use Log::Any qw< $log >;
 use Log::Any::Adapter;
 use Bot::ChatBots::Utils qw< pipeline >;
 use Ordeal::Model;
+use Try::Tiny;
 
 use experimental qw< postderef signatures >;
 no warnings qw< experimental::postderef experimental::signatures >;
@@ -45,9 +46,9 @@ get '/' => sub ($c) {
    my $expression = qq<"public-001-all"@[#$n_cards]>;
    my @cards = get_cards($c, $expression);
    $c->render(
-      template   => 'index',
-      cards      => \@cards,
-      n_cards    => $n_cards,
+      template => 'index',
+      cards    => \@cards,
+      n_cards  => $n_cards,
    );
 };
 
@@ -61,12 +62,14 @@ get '/emod' => sub ($c) {
 
 get '/e' => sub ($c) {
    my $expr = $c->param('expression') // qq<"public-001-all"@[#9]>;
-   my @cards = get_cards($c, $expr);
-   $c->render(
+   my ($err, @cards) = try { (0, get_cards($c, $expr)) } catch { (1) };
+   return $err
+     ? $c->redirect_to($c->url_for('emod')->query(expression => $expr))
+     : $c->render(
       template   => 'expression',
       cards      => \@cards,
       expression => $expr,
-   );
+     );
 };
 
 get '/credits' => {template => 'credits'};
