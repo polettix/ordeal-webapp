@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="DESIGNS" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="64px" height="64px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
+<style type="text/css">
+	.fandom_zeven{fill:#508D9B;}
+	.fandom_acht{fill:#6BC4D2;}
+	.fandom_elf{fill:#4B322A;}
+	.fandom_twaalf{fill:#644638;}
+	.fandom_veertien{fill:#EFEAE0;}
+	.fandom_negentien{fill:#CCCCCC;}
+	.st0{fill:#BE5652;}
+	.st1{fill:#FF786E;}
+	.st2{fill:#8579A3;}
+	.st3{fill:#685683;}
+	.st4{fill:#4D4D4D;}
+	.st5{fill:#3A3A3A;}
+	.st6{fill:#AA9991;}
+	.st7{fill:#00B3AA;}
+	.st8{fill:#018273;}
+	.st9{fill:#FFC865;}
+	.st10{fill:#BE9148;}
+	.st11{fill:#808080;}
+	.st12{fill:#666666;}
+	.st13{fill:#FFFAFA;}
+</style>
+<g>
+	<g>
+		<path class="fandom_acht" d="M32,7C18.193,7,7,18.193,7,32h50C57,18.193,45.807,7,32,7z"/>
+		<path class="fandom_zeven" d="M32,57c13.807,0,25-11.193,25-25H7C7,45.807,18.193,57,32,57z"/>
+	</g>
+	<g>
+		<path class="fandom_veertien" d="M56.815,29H55v-2.53L53.032,22L51,26.47V29h-2v-2.53L47.032,22L45,26.47V29h-2v-2.53L41.032,22
+			L39,26.47V29h-2v-2.53L35.032,22L33,26.47V29h-2v-2.53L29.032,22L27,26.47V29h-2v-2.53L23.032,22L21,26.47V29h-2v-2.53L17.032,22
+			L15,26.47V29h-2v-2.53L11.032,22L9,26.47V29H7.185C7.068,29.984,7,30.984,7,32c0,0.335,0.012,0.668,0.025,1H9v8.809
+			c0.624,1.779,2.718,5.061,3.793,6.191h38.413c0.876-0.906,3.123-4.306,3.793-6.191V33h1.975C56.988,32.668,57,32.335,57,32
+			C57,30.984,56.932,29.984,56.815,29z M15,44h-2V33h2V44z M21,44h-2V33h2V44z M27,44h-2V33h2V44z M33,44h-2V33h2V44z M39,44h-2V33
+			h2V44z M45,44h-2V33h2V44z M51,44h-2V33h2V44z"/>
+		<path class="fandom_negentien" d="M27,26.47L29,22v26h-2V26.47z M33,48h2V22l-2,4.47V48z M39,48h2V22l-2,4.47V48z M45,48h2V22
+			l-2,4.47V48z M21,48h2V22l-2,4.47V48z M15,48h2V22l-2,4.47V48z M53,22l-2,4.47V48h0.207c0.646-0.775,1.243-1.592,1.793-2.443V22z
+			 M9,41.809c0.56,1.312,1.233,2.563,2,3.748V22l-2,4.47V41.809z"/>
+		<path class="fandom_twaalf" d="M45,44c-0.358,0-0.705-0.008-1.042-0.022v12C44.295,55.992,44.642,56,45,56c2.761,0,5-0.448,5-1V43
+			C50,43.552,47.761,44,45,44z"/>
+		<path class="fandom_veertien" d="M45.659,44.012c0,0-0.024,2.848,0.553,3.106c0.717,0.321,0.559-1.562,0.729-1.612
+			c0.2-0.059,0.052,2.437,0.388,3.494c0.4,1.259,1.302,0.949,1.436,0c0.203-1.438,0.259-5.407,0.259-5.407
+			C47.687,43.906,45.659,44.012,45.659,44.012z"/>
+		<path class="fandom_elf" d="M45,42c-2.761,0-5,0.448-5,1c0,0.036,0,12,0,12c0,0.481,1.698,0.882,3.958,0.978v-12
+			C44.295,43.992,44.642,44,45,44c2.761,0,5-0.448,5-1C50,42.448,47.761,42,45,42z"/>
+	</g>
+</g>
+</svg>

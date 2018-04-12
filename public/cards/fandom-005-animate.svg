@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="DESIGNS" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="64px" height="64px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
+<style type="text/css">
+	.fandom_zeven{fill:#508D9B;}
+	.fandom_acht{fill:#6BC4D2;}
+	.fandom_veertien{fill:#EFEAE0;}
+	.fandom_zeventien{fill:#666666;}
+	.fandom_achttien{fill:#808080;}
+	.fandom_negentien{fill:#CCCCCC;}
+	.st0{fill:#FF786E;}
+	.st1{fill:#FFC865;}
+	.st2{fill:#8579A3;}
+	.st3{fill:#00B3AA;}
+	.st4{fill:#BE5652;}
+	.st5{fill:#BE9148;}
+	.st6{fill:#018273;}
+	.st7{fill:#685683;}
+	.st8{fill:#AA9991;}
+	.st9{fill:#3A3A3A;}
+	.st10{fill:#4D4D4D;}
+	.st11{fill:#644638;}
+	.st12{fill:#4B322A;}
+	.st13{fill:#FFFAFA;}
+</style>
+<g>
+	<g>
+		<path class="fandom_acht" d="M32,7C18.193,7,7,18.193,7,32h50C57,18.193,45.807,7,32,7z"/>
+		<path class="fandom_zeven" d="M32,57c13.807,0,25-11.193,25-25H7C7,45.807,18.193,57,32,57z"/>
+	</g>
+	<g>
+		<path class="fandom_achttien" d="M41,5c-5.514,0-10,4.486-10,10s4.486,10,10,10s10-4.486,10-10S46.514,5,41,5z M41,19
+			c-2.209,0-4-1.791-4-4c0-2.209,1.791-4,4-4s4,1.791,4,4C45,17.209,43.209,19,41,19z"/>
+		<circle class="fandom_veertien" cx="41" cy="15" r="4"/>
+		<path class="fandom_negentien" d="M41,27c-6.617,0-12-5.383-12-12S34.383,3,41,3s12,5.383,12,12S47.617,27,41,27z M41,5
+			c-5.514,0-10,4.486-10,10s4.486,10,10,10s10-4.486,10-10S46.514,5,41,5z M32.025,43.047V45.5c0,0.829-0.672,1.5-1.5,1.5
+			s-1.5-0.671-1.5-1.5v-2.456C23.926,43.318,20,44.982,20,47c0,2.209,4.701,4,10.5,4S41,49.209,41,47
+			C41,44.989,37.099,43.329,32.025,43.047z"/>
+		<path class="fandom_zeventien" d="M41,47v2c0,2.209-4.701,4-10.5,4S20,51.209,20,49v-2c0,2.209,4.701,4,10.5,4S41,49.209,41,47z
+			 M38.937,38.625c-0.05,0.591-0.442,1.097-1.003,1.292l-5.909,2.054V45.5c0,0.829-0.672,1.5-1.5,1.5s-1.5-0.671-1.5-1.5v-3.758
+			l-9.07-4.746c-0.649-0.34-0.958-1.099-0.73-1.795l2.125-6.5c0.078-0.239,0.215-0.454,0.398-0.626l7-6.583
+			c0.19-0.179,0.425-0.306,0.68-0.366l1.111-0.265c0.539,0.959,1.201,1.841,1.973,2.614l-2,0.476l-6.43,6.046l-1.013,3.098
+			l4.613-0.812l5.506-5.054l0.527-2.715c0.838,0.643,1.757,1.183,2.748,1.589l-0.423,2.183c-0.062,0.315-0.222,0.603-0.458,0.819
+			l-4.544,4.169l7.126,3.911C38.683,37.47,38.986,38.035,38.937,38.625z M33.762,38.191l-5.427-2.978l-3.977,0.7l6.369,3.333
+			L33.762,38.191z"/>
+	</g>
+</g>
+</svg>

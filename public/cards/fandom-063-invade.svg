@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="DESIGNS" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="64px" height="64px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
+<style type="text/css">
+	.fandom_drie{fill:#BE9148;}
+	.fandom_vier{fill:#FFC865;}
+	.fandom_vijf{fill:#018273;}
+	.fandom_zes{fill:#00B3AA;}
+	.fandom_negen{fill:#685683;}
+	.fandom_tien{fill:#8579A3;}
+	.fandom_veertien{fill:#EFEAE0;}
+	.st0{fill:#FF786E;}
+	.st1{fill:#BE5652;}
+	.st2{fill:#644638;}
+	.st3{fill:#4B322A;}
+	.st4{fill:#AA9991;}
+	.st5{fill:#808080;}
+	.st6{fill:#666666;}
+	.st7{fill:#CCCCCC;}
+	.st8{fill:#6BC4D2;}
+	.st9{fill:#508D9B;}
+	.st10{fill:#3A3A3A;}
+	.st11{fill:#FFFAFA;}
+	.st12{fill:#4D4D4D;}
+</style>
+<g>
+	<g>
+		<path class="fandom_tien" d="M32,7C18.193,7,7,18.193,7,32h50C57,18.193,45.807,7,32,7z"/>
+		<path class="fandom_negen" d="M32,57c13.807,0,25-11.193,25-25H7C7,45.807,18.193,57,32,57z"/>
+	</g>
+	<g>
+		<path class="fandom_vier" d="M24,31v2h-4v2h2v6h-2v-4h-2v2h-2V27h4v2h2v2H24z M55,34v-2h-2v2H55z M53,26v-2h-2v-2h-2v-2h-1v14h1
+			v-6h2v4h2v-4h2v-2H53z M39,3h-2v2h2V3z M39,11V7h-2V5h-2v2h-3v6h1v2h2v-2h2v4h2v-4h2v-2H39z"/>
+		<path class="fandom_drie" d="M16,27v12h-2v-2h-2v4h-2v-6h2v-2H8v-2h2v-2h2v-2H16z M41,34h2v-2h-2V34z M47,20v2h-2v2h-2v2h-2v2h2v4
+			h2v-4h2v6h1V20H47z M25,17h2v-4h2v2h2v-2h1V7h-3V5h-2v2h-2v4h-2v2h2V17z M25,3v2h2V3H25z"/>
+		<rect x="31" y="43" class="fandom_veertien" width="2" height="4"/>
+		<polygon class="fandom_zes" points="37,54 37,52 33,52 33,50 32,50 32,58 39,58 39,54 		"/>
+		<polygon class="fandom_vijf" points="32,50 31,50 31,52 27,52 27,54 25,54 25,58 32,58 		"/>
+	</g>
+</g>
+</svg>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="DESIGNS" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="64px" height="64px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
+<style type="text/css">
+	.fandom_drie{fill:#BE9148;}
+	.fandom_vier{fill:#FFC865;}
+	.fandom_vijf{fill:#018273;}
+	.fandom_zes{fill:#00B3AA;}
+	.fandom_elf{fill:#4B322A;}
+	.fandom_twaalf{fill:#644638;}
+	.st0{fill:#6BC4D2;}
+	.st1{fill:#508D9B;}
+	.st2{fill:#EFEAE0;}
+	.st3{fill:#BE5652;}
+	.st4{fill:#FF786E;}
+	.st5{fill:#8579A3;}
+	.st6{fill:#685683;}
+	.st7{fill:#4D4D4D;}
+	.st8{fill:#3A3A3A;}
+	.st9{fill:#CCCCCC;}
+	.st10{fill:#AA9991;}
+	.st11{fill:#808080;}
+	.st12{fill:#666666;}
+	.st13{fill:#FFFAFA;}
+</style>
+<g>
+	<g>
+		<path class="fandom_zes" d="M32,7C18.193,7,7,18.193,7,32h50C57,18.193,45.807,7,32,7z"/>
+		<path class="fandom_vijf" d="M32,57c13.807,0,25-11.193,25-25H7C7,45.807,18.193,57,32,57z"/>
+	</g>
+	<g>
+		<path class="fandom_drie" d="M48,20h4v4h4v20h-4v-4h-4V20z M28,8h-8v4h4v4h8v-4h-4V8z"/>
+		<polygon class="fandom_vier" points="32,16 32,12 28,12 28,8 24,8 24,4 44,4 44,8 48,8 48,12 52,12 52,16 56,16 56,20 60,20 
+			60,40 56,40 56,24 52,24 52,20 44,20 44,16 		"/>
+		<path class="fandom_elf" d="M8,48h4v4H8V48z M12,48h4v-4h-4V48z M16,44h4v-4h-4V44z M20,40h4v-4h-4V40z M24,36h4v-4h-4V36z M44,28
+			v-4h4v-4h-4v-4h-4v4h-4v4h-4v4h-4v4h8v-4H44z M48,8v4h4V8H48z"/>
+		<path class="fandom_twaalf" d="M36,28h4v4h-4V28z M52,16h4V8h-4V16z M16,56v-4h4v-4h4v-4h4v-4h4v-4h4v-4h-8v4h-4v4h-4v4h-4v4h-4v4
+			H8v4H16z"/>
+	</g>
+</g>
+</svg>

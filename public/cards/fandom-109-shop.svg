@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="DESIGNS" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="64px" height="64px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
+<style type="text/css">
+	.fandom_een{fill:#FF786E;}
+	.fandom_twee{fill:#BE5652;}
+	.fandom_drie{fill:#BE9148;}
+	.fandom_vier{fill:#FFC865;}
+	.fandom_zes{fill:#00B3AA;}
+	.fandom_zeven{fill:#508D9B;}
+	.fandom_acht{fill:#6BC4D2;}
+	.fandom_twaalf{fill:#644638;}
+	.fandom_veertien{fill:#EFEAE0;}
+	.fandom_achttien{fill:#808080;}
+	.fandom_negentien{fill:#CCCCCC;}
+	.st0{fill:#AA9991;}
+	.st1{fill:#FFFAFA;}
+	.st2{fill:#4B322A;}
+	.st3{fill:#8579A3;}
+	.st4{fill:#685683;}
+	.st5{fill:#4D4D4D;}
+	.st6{fill:#3A3A3A;}
+	.st7{fill:#666666;}
+	.st8{fill:#018273;}
+</style>
+<g>
+	<g>
+		<path class="fandom_een" d="M32,7C18.193,7,7,18.193,7,32h50C57,18.193,45.807,7,32,7z"/>
+		<path class="fandom_twee" d="M32,57c13.807,0,25-11.193,25-25H7C7,45.807,18.193,57,32,57z"/>
+	</g>
+	<g>
+		<path class="fandom_twaalf" d="M54.16,20.494C53.98,20.188,53.652,20,53.297,20H10.703c-0.355,0-0.683,0.188-0.862,0.494
+			l-6.456,11C2.993,32.16,3.473,33,4.246,33h55.507c0.773,0,1.254-0.84,0.862-1.506L54.16,20.494z"/>
+		<path class="fandom_vier" d="M43,33L28,48h30c0.552,0,1-0.448,1-1V33H43z"/>
+		<path class="fandom_drie" d="M5,33v14c0,0.552,0.448,1,1,1h52c0.552,0,1-0.448,1-1V33H5z"/>
+		<rect x="17" y="33" class="fandom_zeven" width="30" height="15"/>
+		<polygon class="fandom_acht" points="43,33 39,37 39,48 47,48 47,33 		"/>
+		<rect x="25" y="36" class="fandom_achttien" width="14" height="12"/>
+		<polygon class="fandom_negentien" points="28,48 39,48 39,37 		"/>
+		<path class="fandom_veertien" d="M46,31H18c-0.552,0-1-0.448-1-1v-3c0-0.552,0.448-1,1-1h28c0.552,0,1,0.448,1,1v3
+			C47,30.552,46.552,31,46,31z"/>
+		<path class="fandom_zes" d="M47,28H17v-1c0-0.552,0.448-1,1-1h28c0.552,0,1,0.448,1,1V28z"/>
+	</g>
+</g>
+</svg>
