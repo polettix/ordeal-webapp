@@ -62,7 +62,11 @@ get '/emod' => sub ($c) {
 
 get '/e' => sub ($c) {
    my $expr = $c->param('expression') // qq<"public-001-all"@[#9]>;
-   my ($err, @cards) = try { (0, get_cards($c, $expr)) } catch { (1) };
+   my ($err, @cards) = try { (0, get_cards($c, $expr)) }
+      catch {
+         $log->error("got expression error: $_");
+         (1);
+   };
    return $err
      ? $c->redirect_to($c->url_for('emod')->query(expression => $expr))
      : $c->render(
