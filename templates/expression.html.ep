@@ -1,3 +1,4 @@
+
 % layout 'default';
 <style>
 #input {
@@ -35,9 +36,19 @@ div#credits {
 
 <div id="input">
    <form action="/e" method="get">
-      <textarea name="expression"><%= $expression %>"</textarea>
+      <input name="expression" type="hidden" value="<%= $expression %>">
       <input class="input button" type="submit" value="Go!">
    </form>
 </div>
 
-<div id="credits"><a href="credits">credits</a></div>
+<div id="icons">
+% my $i = 0;
+% for my $card ($cards->@*) {
+<img class="icon" id="<%= $card->{id} %>" src="<%= $card->{url} %>" />
+%     if (++$i % 3 == 0) {
+         <br />
+%     }
+% }
+</div>
+
+<div id="credits"><a href="em?expression=<%= $expression %>">modify</a> - <a href="credits">credits</a></div>

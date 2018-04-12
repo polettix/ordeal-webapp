@@ -51,11 +51,21 @@ get '/' => sub ($c) {
    );
 };
 
-get '/e' => sub ($c) {
+get '/emod' => sub ($c) {
    my $expr = $c->param('expression') // qq<"public-001-all"@[#9]>;
    my @cards = get_cards($c, $expr);
    $c->render(
       template   => 'index2',
+      cards      => \@cards,
+      expression => $expr,
+   );
+}
+
+get '/e' => sub ($c) {
+   my $expr = $c->param('expression') // qq<"public-001-all"@[#9]>;
+   my @cards = get_cards($c, $expr);
+   $c->render(
+      template   => 'expression',
       cards      => \@cards,
       expression => $expr,
    );
