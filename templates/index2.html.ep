@@ -16,8 +16,10 @@
    padding-right: 0.3em;
 }
 .text {
-   width: 5em;
-   text-align: center;
+   width: 95%;
+   height: 10em;
+   text-align: left;
+   font-weight: normal;
 }
 div#icons {
    margin-top: 1em;
@@ -35,7 +37,7 @@ div#credits {
 
 <div id="input">
    <form action="/e" method="get">
-      <textarea name="expression"><%= $expression %>"</textarea>
+      <textarea class="input text" name="expression"><%= $expression %></textarea>
       <input class="input button" type="submit" value="Go!">
    </form>
 </div>
