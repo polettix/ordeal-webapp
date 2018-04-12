@@ -51,4 +51,4 @@ div#credits {
 % }
 </div>
 
-<div id="credits"><a href="emod?expression=<%= $expression %>">modify</a> - <a href="credits">credits</a></div>
+<div id="credits"><a href="<%= url_for('emod')->query(expression => $expression) %>">modify</a> - <a href="credits">credits</a></div>
