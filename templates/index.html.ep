@@ -50,4 +50,4 @@ div#credits {
 % }
 </div>
 
-<div id="credits"><a href="credits">credits</a></div>
+<div id="credits"><a href="other">other</a> - <a href="credits">credits</a></div>

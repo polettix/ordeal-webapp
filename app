@@ -78,6 +78,8 @@ get '/e' => sub ($c) {
 
 get '/credits' => {template => 'credits'};
 
+get '/other' => {template => 'other'};
+
 get '/shuffler/*expression' => sub ($c) {
    my $expression = $c->param('expression');
    my @cards = get_cards($c, $expression);

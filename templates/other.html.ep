@@ -1,0 +1,13 @@
+% layout 'default';
+<h1>Other</h1>
+
+<ul>
+   <li><a href="/e?expression=%22public-001-all%22%409">Avocado</a></li>
+   <li><a href="/e?expression=%22public-004-sketchy-all%22%409">Sketchy</a></li>
+   <li><a href="/e?expression=%22public-005-fandom-all%22%409">Fandom</a></li>
+   <li><a href="/e?expression=%22public-006-science_and_fiction-all%22%409">Science and Fiction</a></li>
+</ul>
+
+<p>Icons series by <a href="http://www.toicon.com/">to [icon]</a>, see also<a href="credits">credits</a>.</p>
+
+<p style="text-align: center"><a href="/">Home</a></p>
