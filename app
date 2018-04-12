@@ -59,7 +59,7 @@ get '/emod' => sub ($c) {
       cards      => \@cards,
       expression => $expr,
    );
-}
+};
 
 get '/e' => sub ($c) {
    my $expr = $c->param('expression') // qq<"public-001-all"@[#9]>;
