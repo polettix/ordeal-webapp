@@ -53,6 +53,6 @@ div#credits {
 
 <div id="credits">
    <a href="other">other</a>
-   - <a href="credits">credits</a></div>
+   - <a href="credits">credits</a>
    - <a href="<%= url_for('emod')->query(expression => $expression) %>">modify</a>
 </div>
