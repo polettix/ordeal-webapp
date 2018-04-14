@@ -43,7 +43,7 @@ if ($ENV{TOKEN}) {
 get '/' => sub ($c) {
    my $n_cards = $c->param('n_cards') || 9;
    $n_cards = 9 unless $n_cards =~ m{\A[1-9]\d*\z}mxs;
-   my $expression = qq<"public-001-all"@[#$n_cards]>;
+   my $expression = "avocado\@$n_cards";
    my @cards = get_cards($c, $expression);
    $c->render(
       template => 'index',
@@ -53,7 +53,7 @@ get '/' => sub ($c) {
 };
 
 get '/emod' => sub ($c) {
-   my $expr = $c->param('expression') // qq<"public-001-all"@[#9]>;
+   my $expr = $c->param('expression') // "avocado\@9";
    $c->render(
       template   => 'index2',
       expression => $expr,
@@ -77,18 +77,7 @@ get '/e' => sub ($c) {
 };
 
 get '/credits' => {template => 'credits'};
-
 get '/other' => {template => 'other'};
-
-get '/shuffler/*expression' => sub ($c) {
-   my $expression = $c->param('expression');
-   my @cards = get_cards($c, $expression);
-   $c->render(
-      template   => 'index',
-      cards      => \@cards,
-      expression => $expression,
-   );
-};
 
 app->start;
 
