@@ -2,7 +2,8 @@
 <h1>Credits</h1>
 
 <ul>
-   <li>Icons series by <a href="http://www.toicon.com/">to [icon]</a>.
+   <li>App by <a href="http://blog.polettix.it/">Flavio Poletti</a>, based on <a href="https://metacpan.org/pod/distribution/Mojolicious/lib/Mojolicious/Guides/Tutorial.pod">Mojolicious</a>.</li>
+   <li>Icons series by <a href="http://www.toicon.com/">to [icon]</a>, used according to their <a href="https://www.toicon.com/license">license</a>:
       <ul>
          <li><a href="http://www.toicon.com/series/avocado">Avocado</a></li>
          <li><a href="http://www.toicon.com/series/sketchy">Sketchy</a></li>
@@ -10,6 +11,7 @@
          <li><a href="http://www.toicon.com/series/science-and-fiction">Science and Fiction</a></li>
       </ul>
    </li>
+   <li>Rest of the (poor) content in this site is licensed according to <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International (CC BY 4.0)</a>.</li>
 </ul>
 
 <p style="text-align: center"><a href="/">Home</a></p>
