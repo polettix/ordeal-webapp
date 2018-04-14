@@ -86,7 +86,6 @@ get '/shuffler/*expression' => sub ($c) {
    $c->render(
       template   => 'index',
       cards      => \@cards,
-      n_cards    => 9,
       expression => $expression,
    );
 };
