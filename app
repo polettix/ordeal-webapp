@@ -17,6 +17,11 @@ no warnings qw< experimental::postderef experimental::signatures >;
 
 Log::Any::Adapter->set(MojoLog => logger => app->log);
 
+use constant DEFAULT_DECK => 'avocado';
+use constant DEFAULT_N    => 9;
+use constant DEFAULT_EXPRESSION =>
+  ($ENV{ORDEAL_EXPRESSION} || join('@', DEFAULT_DECK, DEFAULT_N));
+
 sub ordeal;
 
 app->secrets([split m{\s+}mxs, ($ENV{SECRETS} || 'befunge!')]);
@@ -43,7 +48,7 @@ if ($ENV{TOKEN}) {
 get '/' => sub ($c) {
    my $n_cards = $c->param('n_cards') || 9;
    $n_cards = 9 unless $n_cards =~ m{\A[1-9]\d*\z}mxs;
-   my $expression = "avocado\@$n_cards";
+   my $expression = join '@', DEFAULT_DECK, $n_cards;
    my @cards = get_cards($c, $expression);
    $c->render(
       template => 'index',
@@ -53,7 +58,7 @@ get '/' => sub ($c) {
 };
 
 get '/emod' => sub ($c) {
-   my $expr = $c->param('expression') // "avocado\@9";
+   my $expr = $c->param('expression') // DEFAULT_EXPRESSION;
    $c->render(
       template   => 'index2',
       expression => $expr,
@@ -61,11 +66,11 @@ get '/emod' => sub ($c) {
 };
 
 get '/e' => sub ($c) {
-   my $expr = $c->param('expression') // qq<"public-001-all"@[#9]>;
+   my $expr = $c->param('expression') // DEFAULT_EXPRESSION;
    my ($err, @cards) = try { (0, get_cards($c, $expr)) }
-      catch {
-         $log->error("got expression error: $_");
-         (1);
+   catch {
+      $log->error("got expression error: $_");
+      (1);
    };
    return $err
      ? $c->redirect_to($c->url_for('emod')->query(expression => $expr))
@@ -77,7 +82,7 @@ get '/e' => sub ($c) {
 };
 
 get '/credits' => {template => 'credits'};
-get '/other' => {template => 'other'};
+get '/other'   => {template => 'other'};
 
 app->start;
 
@@ -87,7 +92,7 @@ sub get_cards ($c, $expression) {
       my $url = $c->url_for("cards/$id");
       (my $html_id = $id) =~ s{\W}{_}gmxs;
       {url => $url, id => $html_id};
-   } ordeal->get_shuffled_cards(expression => $expression);
+   } ordeal->evaluate($expression)->draw;
 } ## end sub get_cards
 
 sub ordeal { state $model = Ordeal::Model->new }
