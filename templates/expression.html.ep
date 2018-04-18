@@ -3,7 +3,7 @@
 <div id="input">
    <form action="/e" method="get">
       <input name="expression" type="hidden" value="<%= $expression %>">
-      <input class="input button" type="submit" value="Go!">
+      <input class="input button" type="submit" value="New!">
    </form>
 </div>
 
