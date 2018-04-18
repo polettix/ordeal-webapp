@@ -48,7 +48,7 @@ div#footer ul {
 }
 div#footer ul li {
    display: inline;
-   font: bold 18px sans-serif;
+   font: bold 36px sans-serif;
    padding: 0 0.3em;
    margin-top: 0.5em;
 }
