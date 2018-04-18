@@ -1,38 +1,4 @@
-
 % layout 'default';
-<style>
-#input {
-   text-align: center;
-}
-.input {
-   font: bold 72px sans-serif;
-   margin: 0.2em 0.2em;
-}
-.button {
-   border: #aaa;
-   border-radius: 10px;
-   background: #eee;
-   border: 2px solid #bbb;
-   padding-left: 0.3em;
-   padding-right: 0.3em;
-}
-.text {
-   width: 5em;
-   text-align: center;
-}
-div#icons {
-   margin-top: 1em;
-   text-align: center;
-}
-.icon {
-   width: 30%;
-   margin: 1%;
-}
-div#credits {
-   text-align: center;
-   font-size: 10pt;
-}
-</style>
 
 <div id="input">
    <form action="/e" method="get">
@@ -49,10 +15,4 @@ div#credits {
          <br />
 %     }
 % }
-</div>
-
-<div id="credits">
-   <a href="other">other</a>
-   - <a href="credits">credits</a>
-   - <a href="<%= url_for('emod')->query(expression => $expression) %>">modify</a>
 </div>
