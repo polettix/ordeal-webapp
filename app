@@ -3,7 +3,7 @@ use strict;
 use warnings;
 use Data::Dumper;
 
-use 5.024;
+use 5.0240;
 
 use Mojolicious::Lite;
 use Log::Any qw< $log >;
