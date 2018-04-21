@@ -1,4 +1,5 @@
 % layout 'default';
+<div id="other">
 <h1>Other</h1>
 
 <ul>
@@ -13,4 +14,4 @@
    <li><a href="/e?expression=%28d6b%401+%2B+d6c%401+%2B+d6g%401+%2B+d6m%401+%2B+d6r%401+%2B+d6y%401%29%403">Roll 3 dice, random colors</a> (actually: roll 6 dice of 6 different colors, then take 3 random out of the 6)</li>
 </ul>
 
-<p>Icons series by <a href="http://www.toicon.com/">to [icon]</a>, see also <a href="credits">credits</a>.</p>
+</div>

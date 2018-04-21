@@ -1,18 +1,18 @@
 % layout 'default';
 
-<div id="input">
-   <form action="/e" method="get">
-      <input name="expression" type="hidden" value="<%= $expression %>">
-      <input class="input button" type="submit" value="New!">
-   </form>
-</div>
-
 <div id="icons">
 % my $i = 0;
 % for my $card ($cards->@*) {
 <img class="icon" id="<%= $card->{id} %>" src="<%= $card->{url} %>" />
 %     if (++$i % 3 == 0) {
-         <br />
+         <!-- br / -->
 %     }
 % }
+</div>
+
+<div id="input">
+   <form action="/e" method="get">
+      <input name="expression" type="hidden" value="<%= $expression %>">
+      <input class="input button" type="submit" value="New!">
+   </form>
 </div>

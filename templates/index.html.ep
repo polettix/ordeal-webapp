@@ -1,10 +1,4 @@
 % layout 'default';
-<div id="input">
-   <form action="/" method="get">
-      <input class="input text" name="n_cards" type="text" value="<%= $n_cards %>">
-      <input class="input button" type="submit" value="New!">
-   </form>
-</div>
 
 <div id="icons">
 % my $i = 0;
@@ -14,4 +8,11 @@
          <br />
 %     }
 % }
+</div>
+
+<div id="input">
+   <form action="/" method="get">
+      <input class="input text" name="n_cards" type="text" value="<%= $n_cards %>">
+      <input class="input button" type="submit" value="New!">
+   </form>
 </div>

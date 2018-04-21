@@ -6,15 +6,25 @@
       <style>
 body {
    margin: 0;
-   padding: 3%;
-   font: normal 36px sans-serif;
+   padding: 0;
+   font: normal 0 sans-serif;
    box-sizing: border-box;
 }
+
+* {
+   margin: 0;
+   padding: 0;
+}
+
+div#iconsz {
+   border: 1px solid black;
+}
+
 #input {
    text-align: center;
 }
 .input {
-   font: bold 36px sans-serif;
+   font: bold 24px sans-serif;
    margin: 0.2em 0.2em;
 }
 .button {
@@ -33,15 +43,18 @@ textarea.text {
    width: 95%;
    height: 10em;
    text-align: left;
-   font: normal 48px sans-serif;
+   font: normal 18px sans-serif;
 }
 div#icons {
-   margin-top: 1em;
    text-align: center;
+   max-width: 800px;
+   padding: 1%;
+   margin-left: auto;
+   margin-right: auto;
 }
 .icon {
-   width: 30%;
-   margin: 0.5%;
+   width: 100px;
+   margin: 7px;
    box-sizing: border-box;
    /* border: 1px solid black; */
 }
@@ -49,17 +62,33 @@ div#credits {
    text-align: center;
    font-size: 10pt;
 }
+div#footer {
+   padding: 1% 0 0 0;
+   margin: 1% 0 0 0;
+   border-top: 1px solid #aaa;
+}
 div#footer ul {
    list-style-type: none;
+   text-align: center;
    margin: 0;
    padding: 0;
-   text-align: center;
 }
 div#footer ul li {
    display: inline;
    font: bold 18px sans-serif;
+   margin: 0;
    padding: 0 0.3em;
-   margin-top: 0.5em;
+}
+div#other {
+   font: normal 16px sans-serif;
+}
+div#other h1 {
+   font: bold 24px sans-serif;
+}
+div#other ul {
+   list-style-type: disc;
+   list-style-position: outside;
+   margin-left: 2em;
 }
       </style>
    </head>
