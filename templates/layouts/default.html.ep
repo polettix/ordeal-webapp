@@ -11,7 +11,7 @@
       <div id="footer">
          <ul>
             <li><a href="<%= url_for('/') %>">home</a></li>
-            <li><a href="<%= url_for('other') %>">other</a></li>
+            <li><a href="<%= url_for('other') %>">examples</a></li>
             <li><a href="<%= url_for('credits') %>">credits</a></li>
          <% if (my $e = $c->stash('expression')) { %>
             <li><a href="<%= url_for('emod')->query(expression => $e) %>">modify</a></li>

@@ -1,11 +1,11 @@
 % layout 'default';
 <div id="other">
-<h1>Other</h1>
+<h1>Examples</h1>
 
 <ul>
    <li><a href="/e?expression=avocado%409">Avocado, 9 random icons</a></li>
    <li><a href="/e?expression=avofood%403">Avocado Food, 3 random icons</a></li>
-   <li><a href="/e?expression=sketchy%409">Sketchy, 9 random icons</a></li>
+   <li><a href="/e?expression=sketchy%4012">Sketchy, 12 random icons</a></li>
    <li><a href="/e?expression=fandom%409">Fandom, 9 random icons</a></li>
    <li><a href="/e?expression=saf%409">Science and Fiction, 9 random icons</a></li>
    <li><a href="/e?expression=saf%403+%2B+fandom%403">Mix, 3 random from Science and Fiction and 3 random from Fandom</a></li>
