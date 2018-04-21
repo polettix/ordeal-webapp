@@ -10,7 +10,7 @@
 % my $i = 0;
 % for my $card ($cards->@*) {
 <img class="icon" id="<%= $card->{id} %>" src="<%= $card->{url} %>" />
-%     if (++$i % 3 == 0) {
+%     if (0 && ++$i % 3 == 0) {
          <br />
 %     }
 % }
