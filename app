@@ -21,13 +21,11 @@ use constant DEFAULT_N    => 9;
 use constant DEFAULT_EXPRESSION =>
   ($ENV{ORDEAL_EXPRESSION} || join('@', DEFAULT_DECK, DEFAULT_N));
 
-sub ordeal;
-
-app->secrets([split m{\s+}mxs, ($ENV{SECRETS} || 'befunge!')]);
+app->secrets([split m{\s+}mxs, ($ENV{SECRETS} || 'ordeal!')]);
 
 get '/' => sub ($c) {
-   my $n_cards = $c->param('n_cards') || 9;
-   $n_cards = 9 unless $n_cards =~ m{\A[1-9]\d*\z}mxs;
+   my $n_cards = $c->param('n_cards') // 0;    # avoid undef
+   $n_cards = DEFAULT_N unless $n_cards =~ m{\A [1-9]\d* \z}mxs;
    my $expression = join '@', DEFAULT_DECK, $n_cards;
    my @cards = get_cards($c, $expression);
    $c->render(
@@ -39,9 +37,11 @@ get '/' => sub ($c) {
 
 get '/emod' => sub ($c) {
    my $expr = $c->param('expression') // DEFAULT_EXPRESSION;
+   my $error = $c->param('error');
    $c->render(
       template   => 'index2',
       expression => $expr,
+      error      => $error,
    );
 };
 
@@ -53,7 +53,8 @@ get '/e' => sub ($c) {
       (1);
    };
    return $err
-     ? $c->redirect_to($c->url_for('emod')->query(expression => $expr))
+     ? $c->redirect_to(
+      $c->url_for('emod')->query(expression => $expr, error => 1))
      : $c->render(
       template   => 'expression',
       cards      => \@cards,
@@ -67,28 +68,12 @@ get '/other'   => {template => 'other'};
 app->start;
 
 sub get_cards ($c, $expression) {
+   state $model = Ordeal::Model->new;
    return map {
       my $id  = $_->id;
       my $url = $c->url_for("cards/$id");
       (my $html_id = $id) =~ s{\W}{_}gmxs;
       {url => $url, id => $html_id};
-   } ordeal->evaluate($expression)->draw;
+   } $model->evaluate($expression)->draw;
 } ## end sub get_cards
 
-sub ordeal { state $model = Ordeal::Model->new }
-
-sub log_request {
-   my $record = shift;
-   local $Data::Dumper::Indent = 1;
-   $log->info('Payload: ', Dumper($record->{payload}));
-   return $record;
-} ## end sub log_request
-
-sub pre_processor {
-   my $record = shift;
-   $log->info("setting response");
-
-   # do whatever you want with $record, e.g. set a quick response
-   $record->{send_response} = 'your thoughts are important for us! ' . $];
-   return $record;
-} ## end sub pre_processor

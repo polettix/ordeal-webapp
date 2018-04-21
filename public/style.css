@@ -24,6 +24,14 @@ div#icons .icon {
 div#input {
    text-align: center;
 }
+div#input p {
+   font: bold 18px sans-serif;
+   text-align: center;
+   color: #ff0000;
+   background-color: #ffbbbb;
+   padding: 2px;
+   margin: 2px;
+}
 div#input .input {
    font: bold 24px sans-serif;
    margin: 0.2em 0.2em;
