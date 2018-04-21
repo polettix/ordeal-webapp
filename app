@@ -8,7 +8,6 @@ use 5.024;
 use Mojolicious::Lite;
 use Log::Any qw< $log >;
 use Log::Any::Adapter;
-use Bot::ChatBots::Utils qw< pipeline >;
 use Ordeal::Model;
 use Try::Tiny;
 
@@ -25,25 +24,6 @@ use constant DEFAULT_EXPRESSION =>
 sub ordeal;
 
 app->secrets([split m{\s+}mxs, ($ENV{SECRETS} || 'befunge!')]);
-
-if ($ENV{TOKEN}) {
-   my $domain = $ENV{DOMAIN};
-   my $token  = $ENV{TOKEN};
-   (my $wtoken = $token) =~ s{\W}{-}gmxs;
-   plugin 'Bot::ChatBots::Telegram' => instances => [
-      [
-         'WebHook',
-         processor =>
-           pipeline(\&log_request, \&pre_processor, {tap => 'bucket'},),
-         register   => 1,
-         token      => $token,
-         unregister => 0,
-         url        => "https://$domain/telegram/$wtoken",
-      ],
-
-      # more can follow here...
-   ];
-} ## end if ($ENV{TOKEN})
 
 get '/' => sub ($c) {
    my $n_cards = $c->param('n_cards') || 9;
