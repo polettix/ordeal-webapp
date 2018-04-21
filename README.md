@@ -20,6 +20,6 @@ There are a couple of environment variables that are recognized:
 If you want to see a (hopefully) running instance [go here][ordeal].
 
 [dokku]: http://dokku.viewdocs.io/dokku/
-[dytp]: http://blog.polettix.it/dokku-your-tiny-paas/
+[dytp]: https://blog.polettix.it/dokku-your-tiny-paas/
 [Mojolicious]: https://metacpan.org/pod/Mojolicious
 [ordeal]: https://ordeal.introm.it
