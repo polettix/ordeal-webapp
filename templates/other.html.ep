@@ -12,6 +12,7 @@
    <li><a href="/e?expression=%28saf%403+%2B+fandom%403%29%40">Same as mix above, but shuffled together</a></li>
    <li><a href="/e?expression=3*d6%401">Roll 3 dice</a></li>
    <li><a href="/e?expression=%28d6b%401+%2B+d6c%401+%2B+d6g%401+%2B+d6m%401+%2B+d6r%401+%2B+d6y%401%29%403">Roll 3 dice, random colors</a> (actually: roll 6 dice of 6 different colors, then take 3 random out of the 6)</li>
+   <li><a href="/e?expression=2*iching%401">I-Ching</a></li>
 </ul>
 
 </div>
