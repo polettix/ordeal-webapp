@@ -55,10 +55,13 @@ get '/e' => sub ($c) {
    return $err
      ? $c->redirect_to(
       $c->url_for('emod')->query(expression => $expr, error => 1))
-     : $c->render(
-      template   => 'expression',
-      cards      => \@cards,
-      expression => $expr,
+     : $c->respond_to(
+         html => {
+            template   => 'expression',
+            cards      => \@cards,
+            expression => $expr,
+         },
+         json => {json => {cards => \@cards, expression => $expr}},
      );
 };
 
