@@ -1,0 +1,19 @@
+% layout 'default';
+<div id="input">
+% if ($error) {
+   <p class="error">Syntax error, please correct!</p>
+% }
+   <form action="/e" method="get">
+      <textarea class="input text" name="expression"><%= $expression %></textarea>
+      <input class="input button" type="submit" value="Go!">
+   </form>
+</div>
+<div id="decks">
+<ul>
+[%
+   for (A '') {
+%]   <li>[% $_ %]</li>
+[%
+   }
+%]</ul>
+</div>
