@@ -54,9 +54,9 @@ sub set_generator ($self, %args) {
         defined($args{model})
         ? Ordeal::Model->new(Raw => $args{model})
         : undef;
-      ouch 404, 'no cards/decks to shuffle' unless defined $iom // $om;
+      ouch 404, 'no cards/decks to shuffle' unless defined($iom // $om);
       my $iexp = $args{expression};
-      ouch 404, 'no expression to evaluate' unless defined $iexp // $exp;
+      ouch 404, 'no expression to evaluate' unless defined($iexp // $exp);
       my $iast =
           (defined($iom) || defined($iexp))
         ? ($iom // $om)->parse($iexp // $exp)
