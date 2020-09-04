@@ -85,7 +85,7 @@ get '/table/ui/:id' => sub ($c) {
 # Arrange the specific table, overwriting current conditions
 put '/table/:id' => sub ($c) {
    $thc->handler_for($c->param('id'))
-      ->set_generator(get_table_setup($c));
+      ->set_generator(decode_json($c->body || '{}')->%*);
    return $c->render(json => {response => 'OK'});
 };
 
