@@ -9,5 +9,6 @@
         document.body.innerHTML += event.data + '<br/>';
       }, false);
     </script>
+    <h1>LiveLog!</h1>
   </body>
 </html>

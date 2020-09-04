@@ -8,23 +8,26 @@ use Mojo::JSON qw< decode_json encode_json >;
 use Ouch;
 use Ordeal::Model;
 
+use constant EVENT => 'push';
+
 has current_value    => undef;
 has last_action_time => sub { time() };
 has value_generator  => undef;
 
 sub is_obsolete ($self, $reference_time) {
    $reference_time += time() if $reference_time < 0;
-   return 0 if $self->has_subscribers;
+   return 0 if $self->has_subscribers(EVENT());
    return $self->last_action_time < $reference_time;
 }
 
 sub onboard_controller ($self, $c) {
-   my $method = sub ($e, $v) { $c->write("event:push\ndata: $v\n\n") };
+   my $event = EVENT;
+   my $method = sub ($e, $v) { $c->write("event:$event\ndata: $v\n\n") };
    if (defined(my $current_value = $self->current_value)) {
       $method->($self, $current_value);
    }
-   my $cb = $self->on(push => $method);    # subscribe
-   $c->on(finish => sub ($c) { $self->unsubscribe(push => $cb) });
+   my $cb = $self->on(EVENT() => $method);    # subscribe
+   $c->on(finish => sub ($c) { $self->unsubscribe(EVENT() => $cb) });
 } ## end sub onboard_controller
 
 sub tick ($self) { $self->last_action_time(time()) }
@@ -35,14 +38,14 @@ sub update ($self, %args) {
    my $v = $generator->(%args);
    $v = encode_json($v) if ref $v;
    $self->current_value($v);
-   $self->emit(push => $v);
+   $self->emit(EVENT() => $v);
    return $v;
 } ## end sub update
 
 sub set_generator ($self, %args) {
    my $om =
      defined($args{model})
-     ? Ordeal::Model->new(Raw => $args{model})
+     ? Ordeal::Model->new(Raw => {data => $args{model}})
      : undef;
    my $exp = $args{expression};
    my $ast = defined($om) && defined($exp) ? $om->parse($exp) : undef;
@@ -61,6 +64,7 @@ sub set_generator ($self, %args) {
       my $shuffle = ($iom // $om)->evaluate($iast);
       my @cards   = map {
          my ($ct, $data) = ($_->content_type, $_->data);
+         $ct //= 'text/plain';
          ($ct eq 'application/json') ? decode_json($data) : $data;
       } $shuffle->draw(0);    # takes them all
       return \@cards;
