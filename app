@@ -2,6 +2,8 @@
 use strict;
 use warnings;
 use Data::Dumper;
+use FindBin '$Bin';
+use lib "$Bin/lib";
 
 use 5.024;
 
