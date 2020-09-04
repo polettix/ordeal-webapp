@@ -100,8 +100,12 @@ get '/table/:id' => sub ($c) {
    # Increase inactivity timeout for connection a bit
    $c->inactivity_timeout(300);
 
-   # Change content type and finalize response headers
-   $c->res->headers->content_type('text/event-stream');
+   # Change content type and finalize response headers. Make sure any
+   # intermediate proxy (*COUGH*nginx*COUGH*) does not buffer.
+   my $headers = $c->res->headers;
+   $headers->content_type('text/event-stream');
+   $headers->cache_control('No-Cache');
+   $headers->header('X-Accel-Buffering' => 'no');
    $c->write;
 
    $thc->handler_for($c->param('id'))->onboard_controller($c);
