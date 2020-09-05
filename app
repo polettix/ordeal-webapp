@@ -114,6 +114,7 @@ put '/table/:id/:auth' => sub ($c) {
 # Trigger generation of a new state for the table
 post '/table/:id' => sub ($c) {
    my $v = table_draw($c, get_table_args($c), id => $c->param('id'));
+   my $headers = $c->res->headers;
    $headers->header('Access-Control-Allow-Origin' => '*');
    return $c->render(data => $v, format => 'json');
 };
