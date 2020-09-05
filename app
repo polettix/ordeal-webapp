@@ -113,9 +113,17 @@ put '/table/:id/:auth' => sub ($c) {
 
 # Trigger generation of a new state for the table
 post '/table/:id' => sub ($c) {
+   my $headers = $c->res->headers;
+   $headers->header('Access-Control-Allow-Origin' => '*');
    my $v = table_draw($c, get_table_args($c), id => $c->param('id'));
    return $c->render(data => $v, format => 'json');
 };
+
+options '/table/:id' => sub ($c) {
+   my $headers = $c->res->headers;
+   $headers->header('Access-Control-Allow-Origin' => '*');
+   return $c->render(text => '');
+}
 
 sub table_draw ($c, %args) {
    my $id = delete $args{id};
@@ -134,6 +142,7 @@ get '/table/:id' => sub ($c) {
    $headers->content_type('text/event-stream');
    $headers->cache_control('No-Cache');
    $headers->header('X-Accel-Buffering' => 'no');
+   $headers->header('Access-Control-Allow-Origin' => '*');
    $c->write;
 
    $thc->handler_for($c->param('id'))->onboard_controller($c);
@@ -180,7 +189,10 @@ sub table_setup ($c, %args) {
 };
 
 sub get_table_args ($c) {
-   my %args = map { $_ => $c->param($_) } qw< auth expression id model url >;
+   my %args = map {
+      my $v = $c->param($_);
+      defined $v ? ($_ => $v) : ();
+   } qw< auth expression id model url >;
    $args{model} = decode_json($args{model}) if defined $args{model};
    return %args;
 
