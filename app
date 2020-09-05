@@ -142,7 +142,7 @@ get '/table/:id' => sub ($c) {
 app->start;
 
 sub check_auth ($c, $id, $got_hmac) {
-   my $th = $thc->hander_for($id);
+   my $th = $thc->handler_for($id);
    my $auth_failure = defined($got_hmac)
       ? ($got_hmac ne hmac_sha1_sum($id, $c->app->secrets->[0]))
       : $th->is_authenticated;
@@ -157,27 +157,30 @@ sub table_setup ($c, %args) {
 
    $th->is_authenticated(check_auth($c, $id, $args{auth}));
 
-   # "Resolve" configuration
-   my $n = 5;
-   while ($args{url} && $n-- > 0) {
-      my $url = delete $args{url};
-      my $ua = Mojo::UserAgent->new(max_redirects => 10);
-      my $tx = $ua->get($url);
-      my $rs = $tx->result;
-      if ($rs->is_success) {
-         %args = ($rs->json->%*, %args);
+   # "Resolve" configuration, only if authenticated
+   if ($th->is_authenticated) {
+      my $n = 5;
+      while ($args{url} && $n-- > 0) {
+         my $url = delete $args{url};
+         my $ua = Mojo::UserAgent->new(max_redirects => 10);
+         my $tx = $ua->get($url);
+         my $rs = $tx->result;
+         if ($rs->is_success) {
+            %args = ($rs->json->%*, %args);
+         }
+         else {
+            ouch 400, 'received error from remote url', $url;
+         }
       }
-      else {
-         ouch 400, 'received error from remote url', $url;
-      }
+      ouch 400, 'too many inclusions' if $n < 0;
    }
-   ouch 400, 'too many inclusions' if $n < 0;
+
    $th->set_generator(%args);
    return $th;
 };
 
 sub get_table_args ($c) {
-   my %args = map { $c->param($_) } qw< auth expression id model url >;
+   my %args = map { $_ => $c->param($_) } qw< auth expression id model url >;
    $args{model} = decode_json($args{model}) if defined $args{model};
    return %args;
 
