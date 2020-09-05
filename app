@@ -165,7 +165,7 @@ sub table_setup ($c, %args) {
       my $tx = $ua->get($url);
       my $rs = $tx->result;
       if ($rs->is_success) {
-         %args = (%args, $rs->json->%*);
+         %args = ($rs->json->%*, %args);
       }
       else {
          ouch 400, 'received error from remote url', $url;
