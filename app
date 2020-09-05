@@ -122,6 +122,8 @@ post '/table/:id' => sub ($c) {
 options '/table/:id' => sub ($c) {
    my $headers = $c->res->headers;
    $headers->header('Access-Control-Allow-Origin' => '*');
+   $headers->header('Access-Control-Allow-Headers' => '*');
+   $headers->header('Access-Control-Allow-Methods' => '*');
    return $c->render(text => '');
 };
 
