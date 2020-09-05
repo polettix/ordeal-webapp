@@ -113,9 +113,8 @@ put '/table/:id/:auth' => sub ($c) {
 
 # Trigger generation of a new state for the table
 post '/table/:id' => sub ($c) {
-   my $headers = $c->res->headers;
-   $headers->header('Access-Control-Allow-Origin' => '*');
    my $v = table_draw($c, get_table_args($c), id => $c->param('id'));
+   $headers->header('Access-Control-Allow-Origin' => '*');
    return $c->render(data => $v, format => 'json');
 };
 
@@ -191,19 +190,19 @@ sub table_setup ($c, %args) {
 };
 
 sub get_table_args ($c) {
-   my %args = map {
-      my $v = $c->param($_);
-      defined $v ? ($_ => $v) : ();
-   } qw< auth expression id model url >;
-   $args{model} = decode_json($args{model}) if defined $args{model};
+   my %args;
+   my $ct = $c->req->headers->content_type;
+   if ($ct =~ m{\A application/json (?: \W.*|)\z}imxs) {
+      %args = $c->req->json->%*;
+   }
+   else {
+      %args = map {
+         my $v = $c->param($_);
+         defined $v ? ($_ => $v) : ();
+      } qw< auth expression id model url >;
+      $args{model} = decode_json($args{model}) if defined $args{model};
+   }
    return %args;
-
-   my $model = $c->param('model');
-   $model = decode_json($model) if defined $model;
-   return (
-      model => $model,
-      expression => $c->param('expression'),
-   );
 }
 
 sub get_cards ($c, $expression) {
