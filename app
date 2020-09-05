@@ -123,7 +123,7 @@ options '/table/:id' => sub ($c) {
    my $headers = $c->res->headers;
    $headers->header('Access-Control-Allow-Origin' => '*');
    return $c->render(text => '');
-}
+};
 
 sub table_draw ($c, %args) {
    my $id = delete $args{id};
