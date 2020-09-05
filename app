@@ -9,10 +9,13 @@ use 5.024;
 
 use Mojolicious::Lite;
 use Mojo::JSON qw< decode_json >;
+use Mojo::UserAgent;
+use Mojo::Util qw< hmac_sha1_sum >;
 use Log::Any qw< $log >;
 use Log::Any::Adapter;
 use Ordeal::Model;
 use Try::Tiny;
+use Ouch;
 
 use experimental qw< postderef signatures >;
 no warnings qw< experimental::postderef experimental::signatures >;
@@ -83,17 +86,42 @@ get '/table/ui/:id' => sub ($c) {
 };
 
 # Arrange the specific table, overwriting current conditions
+post '/table' => sub ($c) {
+   my %args = get_table_args($c);
+   ouch 400, 'missing identifier' unless defined $args{id};
+   my $th = table_setup($c, %args);
+   return $c->render(json => {response => 'OK'});
+};
+
 put '/table/:id' => sub ($c) {
-   $thc->handler_for($c->param('id'))
-      ->set_generator(decode_json($c->req->body || '{}')->%*);
+   table_setup($c,
+      decode_json($c->req->body || '{}')->%*,
+      id => $c->param('id'),
+      auth => undef,
+   );
+   return $c->render(json => {response => 'OK'});
+};
+
+put '/table/:id/:auth' => sub ($c) {
+   table_setup($c,
+      decode_json($c->req->body || '{}')->%*,
+      id => $c->param('id'),
+      auth => $c->param('auth'),
+   );
    return $c->render(json => {response => 'OK'});
 };
 
 # Trigger generation of a new state for the table
 post '/table/:id' => sub ($c) {
-   my $v = $thc->handler_for($c->param('id'))->update(get_table_setup($c));
+   my $v = table_draw($c, get_table_args($c), id => $c->param('id'));
    return $c->render(data => $v, format => 'json');
 };
+
+sub table_draw ($c, %args) {
+   my $id = delete $args{id};
+   check_auth($c, $id, $args{auth});
+   return $thc->handler_for($id)->update(%args);
+}
 
 # Invoked by reading clients to get the current state of the table
 get '/table/:id' => sub ($c) {
@@ -111,11 +139,48 @@ get '/table/:id' => sub ($c) {
    $thc->handler_for($c->param('id'))->onboard_controller($c);
 };
 
-
-
 app->start;
 
-sub get_table_setup ($c) {
+sub check_auth ($c, $id, $got_hmac) {
+   my $th = $thc->hander_for($id);
+   my $auth_failure = defined($got_hmac)
+      ? ($got_hmac ne hmac_sha1_sum($id, $c->app->secrets->[0]))
+      : $th->is_authenticated;
+   ouch 403, 'Forbidden' if $auth_failure;
+   return defined $got_hmac;
+}
+
+sub table_setup ($c, %args) {
+   my $id = delete $args{id};
+   ouch 400, 'missing identifier for table' unless defined $id;
+   my $th = $thc->handler_for($id);
+
+   $th->is_authenticated(check_auth($c, $id, $args{auth}));
+
+   # "Resolve" configuration
+   my $n = 5;
+   while ($args{url} && $n-- > 0) {
+      my $url = delete $args{url};
+      my $ua = Mojo::UserAgent->new(max_redirects => 10);
+      my $tx = $ua->get($url);
+      my $rs = $tx->result;
+      if ($rs->is_success) {
+         %args = (%args, $rs->json->%*);
+      }
+      else {
+         ouch 400, 'received error from remote url', $url;
+      }
+   }
+   ouch 400, 'too many inclusions' if $n < 0;
+   $th->set_generator(%args);
+   return $th;
+};
+
+sub get_table_args ($c) {
+   my %args = map { $c->param($_) } qw< auth expression id model url >;
+   $args{model} = decode_json($args{model}) if defined $args{model};
+   return %args;
+
    my $model = $c->param('model');
    $model = decode_json($model) if defined $model;
    return (

@@ -11,10 +11,12 @@ use Ordeal::Model;
 use constant EVENT => 'push';
 
 has current_value    => undef;
+has is_authenticated => undef;
 has last_action_time => sub { time() };
 has value_generator  => undef;
 
 sub is_obsolete ($self, $reference_time) {
+   return if $self->is_authenticated;
    $reference_time += time() if $reference_time < 0;
    return 0 if $self->has_subscribers(EVENT());
    return $self->last_action_time < $reference_time;
