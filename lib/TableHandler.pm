@@ -7,6 +7,7 @@ no warnings qw< experimental::postderef >;
 use Mojo::JSON qw< decode_json encode_json >;
 use Ouch;
 use Ordeal::Model;
+use Ordeal::Model::ChaCha20;
 
 use constant EVENT => 'push';
 
@@ -45,25 +46,25 @@ sub update ($self, %args) {
 } ## end sub update
 
 sub set_generator ($self, %args) {
-   my $om =
-     defined($args{model})
-     ? Ordeal::Model->new(Raw => {data => $args{model}})
-     : undef;
+   state $rs = Ordeal::Model::ChaCha20->new;
    my $exp = $args{expression};
-   my $ast = defined($om) && defined($exp) ? $om->parse($exp) : undef;
+   my ($om, $ast);
+   if (defined $args{model}) {
+      $om = Ordeal::Model->new(Raw => {data => $args{model}});
+      $om->random_source($rs);
+      $ast = $om->parse($exp) if defined $exp;
+   }
    my $generator = sub (%args) {
-      my $iom =
-        defined($args{model})
-        ? Ordeal::Model->new(Raw => $args{model})
-        : undef;
-      ouch 404, 'no cards/decks to shuffle' unless defined($iom // $om);
-      my $iexp = $args{expression};
-      ouch 404, 'no expression to evaluate' unless defined($iexp // $exp);
-      my $iast =
-          (defined($iom) || defined($iexp))
-        ? ($iom // $om)->parse($iexp // $exp)
-        : $ast;
-      my $shuffle = ($iom // $om)->evaluate($iast);
+      my ($iom, $iast) = ($om, $ast);
+      if (defined $args{model}) {
+         $iom = Ordeal::Model->new(Raw => {data => $args{model}});
+         $iom->random_source($rs);
+         $iast = undef; # reset the "inside AST" for regeneration
+      }
+      ouch 404, 'no cards/decks to shuffle' unless defined $iom;
+      $iast = $iom->parse($args{expression}) if defined $args{expression};
+      ouch 404, 'no expression to evaluate' unless defined($iast // $exp);
+      my $shuffle = $iom->evaluate($iast // $iom->parse($exp));
       my @cards   = map {
          my ($ct, $data) = ($_->content_type, $_->data);
          $ct //= 'text/plain';
