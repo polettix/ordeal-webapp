@@ -124,7 +124,7 @@ options '/table/:id' => sub ($c) {
    $headers->header('Access-Control-Allow-Origin' => '*');
    $headers->header('Access-Control-Allow-Headers' => '*');
    $headers->header('Access-Control-Allow-Methods' => '*');
-   return $c->render(text => '');
+   return $c->render(code => 204);
 };
 
 sub table_draw ($c, %args) {
