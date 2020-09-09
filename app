@@ -119,13 +119,16 @@ post '/table/:id' => sub ($c) {
    return $c->render(data => $v, format => 'json');
 };
 
-options '/table/:id' => sub ($c) {
+sub permissive_empty ($c) {
    my $headers = $c->res->headers;
    $headers->header('Access-Control-Allow-Origin' => '*');
    $headers->header('Access-Control-Allow-Headers' => '*');
    $headers->header('Access-Control-Allow-Methods' => '*');
    return $c->render(status => 204, data => '');
-};
+}
+
+options '/table/:id' => \&permissive_empty;
+options '/table' => \&permissive_empty;
 
 sub table_draw ($c, %args) {
    my $id = delete $args{id};
