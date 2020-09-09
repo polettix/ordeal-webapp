@@ -84,11 +84,13 @@ if (defined $ENV{TABLES}) {
    my $tables = decode_json($ENV{TABLES});
    my $secret = app->secrets->[0];
    while (my ($id, $url) = each $tables->%*) {
+      my $auth = hmac_sha1_sum($id, $secret);
       table_setup($secret,
          id => $id,
-         auth => hmac_sha1_sum($id, $secret),
+         auth => $auth,
          url => $url,
       );
+      table_draw($secret, id => $id, auth => $auth);
    }
 }
 
@@ -143,9 +145,9 @@ options '/table/:id/:auth' => \&permissive_empty;
 options '/table/:id' => \&permissive_empty;
 options '/table' => \&permissive_empty;
 
-sub table_draw ($c, %args) {
+sub table_draw ($secret, %args) {
    my $id = delete $args{id};
-   check_auth($c, $id, $args{auth});
+   check_auth($secret, $id, $args{auth});
    return $thc->handler_for($id)->update(%args);
 }
 
