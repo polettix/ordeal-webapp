@@ -127,6 +127,7 @@ sub permissive_empty ($c) {
    return $c->render(status => 204, data => '');
 }
 
+options '/table/:id/:auth' => \&permissive_empty;
 options '/table/:id' => \&permissive_empty;
 options '/table' => \&permissive_empty;
 
