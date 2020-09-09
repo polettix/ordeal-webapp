@@ -80,6 +80,18 @@ get '/other'   => {template => 'other'};
 # Experimental...
 my $thc = TableHandlerCollection->new(timeout => TIMEOUT);
 
+if (defined $ENV{TABLES}) {
+   my $tables = decode_json($ENV{TABLES});
+   my $secret = app->secrets->[0];
+   while (my ($id, $url) = each $tables->%*) {
+      table_setup($secret,
+         id => $id,
+         auth => hmac_sha1_sum($id, $secret),
+         url => $url,
+      );
+   }
+}
+
 # Sample browser-side stuff, only displays raw stuff
 get '/table/ui/:id' => sub ($c) {
    return $c->render(template => 'table', id => scalar $c->param('id'));
@@ -156,21 +168,22 @@ get '/table/:id' => sub ($c) {
 
 app->start;
 
-sub check_auth ($c, $id, $got_hmac) {
+sub check_auth ($secret, $id, $got_hmac) {
+   $secret = $secret->app->secrets->[0] if ref $secret;
    my $th = $thc->handler_for($id);
    my $auth_failure = defined($got_hmac)
-      ? ($got_hmac ne hmac_sha1_sum($id, $c->app->secrets->[0]))
+      ? ($got_hmac ne hmac_sha1_sum($id, $secret))
       : $th->is_authenticated;
    ouch 403, 'Forbidden' if $auth_failure;
    return defined $got_hmac;
 }
 
-sub table_setup ($c, %args) {
+sub table_setup ($secret, %args) {
    my $id = delete $args{id};
    ouch 400, 'missing identifier for table' unless defined $id;
    my $th = $thc->handler_for($id);
 
-   $th->is_authenticated(check_auth($c, $id, $args{auth}));
+   $th->is_authenticated(check_auth($secret, $id, $args{auth}));
 
    # "Resolve" configuration, only if authenticated
    if ($th->is_authenticated) {
